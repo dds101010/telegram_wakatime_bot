@@ -28,7 +28,7 @@ public class TelegramAPIHelper {
         var builder = new StringBuilder();
         while (!queue.isEmpty()) {
             var project = queue.poll();
-            builder.append("➡ ").append(project.getName()).append(" - ").append(project.getTime()).append(" min\n");
+            builder.append("- ").append(project.getName()).append(" - ").append(project.getTime()).append(" min\n");
         }
         return builder.toString();
     }
