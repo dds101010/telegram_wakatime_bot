@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  wakatimetelegrambot:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: 'org.zenith.telegram_wakatime.LambdaExecutor::handleRequest'
+      Runtime: java11
+      CodeUri: .
+      Description: ''
+      MemorySize: 512
+      Timeout: 30
+      Role: >-
+        arn:aws:iam::<replace_arn_here>:role/service-role/wakatime_telegram_bot-role-fbfz2hi3
+      Events:
+        Schedule1:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 0 * * ? *)
